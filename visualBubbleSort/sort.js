@@ -1,4 +1,3 @@
-var div_arry = []
 var div_height = 0
 
 function BubbleSort(arry) {
@@ -35,7 +34,6 @@ function setGraph() {
     for(i = 0; i < 43; i++){
         var div = document.createElement('div');
         div.setAttribute("id", "Div" + i.toString());
-        div_arry.push(div)
         var height = randomIntFromInterval(10, 300)
         div.style.width = "15px";
         div.style.height = height.toString() + "px";
@@ -50,16 +48,14 @@ function setGraph() {
 function sort(){
     // change the pos of div id 1 and div id 2
     for(i = 0; i < 43; i++){
-        console.log("Div" + i.toString())
-        var element = document.getElementById["Div1"]
+        var element = document.getElementById("Div" + i.toString())
+        element.style.left = 50
+        element.style.top = 50
         console.log(element)
-        element.style.left = '0px'
-        element.style.top = '0px'
     }
 }
 
 
 function main() {
     setGraph()
-    console.log(div_arry)
 }
