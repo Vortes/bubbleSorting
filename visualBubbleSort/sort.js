@@ -1,4 +1,5 @@
 var div_height = 0
+var current = 0
 
 function BubbleSort(arry) {
     var swap;
@@ -35,24 +36,26 @@ function setGraph() {
         var div = document.createElement('div');
         div.setAttribute("id", "Div" + i.toString());
         var height = randomIntFromInterval(10, 300)
+        div.style.position = 'absolute';
+        current += 34
+        div.style.left = current.toString() + 'px';
         div.style.width = "15px";
         div.style.height = height.toString() + "px";
         div.style.background = "black";
-        div.style.margin = "0.5%";
-        div.style.float = 'left'
         document.getElementById("main").appendChild(div);
     }
-}
+} 
 
 
 function sort(){
     // change the pos of div id 1 and div id 2
-    for(i = 0; i < 43; i++){
-        var element = document.getElementById("Div" + i.toString())
-        element.style.left = 50
-        element.style.top = 50
-        console.log(element)
-    }
+    var element = document.getElementById("Div0")
+    var element2 = document.getElementById("Div1")
+    x = element.offsetLeft
+    x2 = element2.offsetLeft
+    console.log(x,x2)
+    element2.style.left = x.toString() + 'px';
+    element.style.left = x2.toString() + 'px';
 }
 
 
