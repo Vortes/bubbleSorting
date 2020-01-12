@@ -21,6 +21,26 @@ function BubbleSort(arry) {
 }
 
 
+function BubbleSortTest(arry) {
+    var swap;
+    var n = arry.length-1;
+    var x = arry;
+    do {
+        swap = false;
+        for (var i=0; i < n; i++) {
+            if (x[i] < x[i+1]) {
+               var temp = x[i];
+               x[i] = x[i+1];
+               x[i+1] = temp;
+               swap = true;
+            }
+        }
+        n--;
+    } while (swap);
+    return x.reverse();
+}
+
+
 function clearScreen() {
     document.body.innerHTML = "";
 }
@@ -51,11 +71,26 @@ function sort(){
     // change the pos of div id 1 and div id 2
     var element = document.getElementById("Div0")
     var element2 = document.getElementById("Div1")
-    x = element.offsetLeft
-    x2 = element2.offsetLeft
-    console.log(x,x2)
-    element2.style.left = x.toString() + 'px';
-    element.style.left = x2.toString() + 'px';
+
+    style = window.getComputedStyle(element)
+    div_height = style.getPropertyValue('height')
+
+    style2 = window.getComputedStyle(element2)
+    div_height2 = style2.getPropertyValue('height')
+
+    div_height = parseInt(div_height.replace('px', ''))
+    div_height2 = parseInt(div_height2.replace('px', ''))
+    console.log(div_height, div_height2)
+    if(div_height > div_height2) {
+        console.log('im in')
+        x = element.offsetLeft
+        x2 = element2.offsetLeft
+        element2.style.left = x.toString() + 'px';
+        element.style.left = x2.toString() + 'px';
+    }
+
+
+
 }
 
 
