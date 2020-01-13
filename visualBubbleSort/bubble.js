@@ -1,15 +1,32 @@
-function BubbleSortTest(arry) {
-    var n = arry.length;
+
+var dict = {
+    Div0: 156,
+    Div1: 32,
+    Div2: 56,
+    Div3: 90,
+}
+
+// console.log(Object.keys(dict));
+// temp = dict['Div0']
+// dict['Div0'] = dict['Div1'] 
+// dict['Div1'] = temp  // switches div order and value
+// console.log(Object.values(dict));
+
+function BubbleSort(dict) {
+    var n = Object.keys(dict).length;
     for(i = 0; i < n; i++){
         for(j = 0; j < n-i-1; j++){
-            if(arry[j] > arry[j+1]){
-                var temp = arry[j];
-                arry[j] = arry[j+1];
-                arry[j+1] = temp;
+            current = "Div"+ j.toString()
+            next = "Div"+ (j+1).toString()
+            if(dict[current] > dict[next]){
+                temp = dict[current]
+                dict[current] = dict[next] 
+                dict[next] = temp 
             }
         }
     }
-    return arry
+    return dict
 }
 
-console.log(BubbleSortTest([73,21,2,2,3,4,90,12,23,56,4,2]))
+console.log(BubbleSort(dict))
+
