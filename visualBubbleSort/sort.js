@@ -1,43 +1,19 @@
 var div_height = 0
 var current = 0
 
-function BubbleSort(arry) {
-    var swap;
-    var n = arry.length-1;
-    var x = arry;
-    do {
-        swap = false;
-        for (var i=0; i < n; i++) {
-            if (x[i] < x[i+1]) {
-               var temp = x[i];
-               x[i] = x[i+1];
-               x[i+1] = temp;
-               swap = true;
-            }
-        }
-        n--;
-    } while (swap);
-    return x.reverse();
-}
-
 
 function BubbleSortTest(arry) {
-    var swap;
-    var n = arry.length-1;
-    var x = arry;
-    do {
-        swap = false;
-        for (var i=0; i < n; i++) {
-            if (x[i] < x[i+1]) {
-               var temp = x[i];
-               x[i] = x[i+1];
-               x[i+1] = temp;
-               swap = true;
+    var n = arry.length;
+    for(i = 0; i < n; i++){
+        for(j = 0; j < n-i-1; j++){
+            if(arry[j] > arry[j+1]){
+                var temp = arry[j];
+                arry[j] = arry[j+1];
+                arry[j+1] = temp;
             }
         }
-        n--;
-    } while (swap);
-    return x.reverse();
+    }
+    return arry.reverse()
 }
 
 
@@ -57,7 +33,7 @@ function setGraph() {
         div.setAttribute("id", "Div" + i.toString());
         var height = randomIntFromInterval(10, 300)
         div.style.position = 'absolute';
-        current += 34
+        current += 32
         div.style.left = current.toString() + 'px';
         div.style.width = "15px";
         div.style.height = height.toString() + "px";
